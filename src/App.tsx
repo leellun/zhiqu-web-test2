@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Provider, useSelector } from 'react-redux';
 import store from './store';
+import testStore, { action2, decrement, increment } from './test/action';
 import { changeChannelAction2 } from './store/action';
 import { changeChannelAction } from './store/thunk';
 import { changeChannel } from './store/slice';
@@ -19,6 +20,9 @@ function App() {
   store.dispatch(changeChannel({id:"23",name:"test3"}))
   store.dispatch(changeUserMsg("aaaaaaaaa"))
   store.dispatch(changeAsyncUserMsg("bbbbbbbb"))
+  testStore.dispatch(increment(3))
+  testStore.dispatch(decrement(3))
+  testStore.dispatch(action2(4))
   const CounterComponent = () => {
     const name = useSelector((state:any) => {
       console.log(state)
